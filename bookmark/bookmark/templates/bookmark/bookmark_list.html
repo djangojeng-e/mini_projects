@@ -21,7 +21,7 @@
 <!-- 제네릭 뷰에서는, 모델의 오브젝트가 여러개일 경우, object_list 라는 변수로 전달.   -->
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td><a href="#">{{ bookmark.site_name }}</a></td>
+            <td><a href="{% url 'detail' pk=bookmark.id }">{{ bookmark.site_name }}</a></td>
             <td><a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }}</a></td>
             <td><a href="#" class="btn btn-success btn-sm">Modify</a></td>
             <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>

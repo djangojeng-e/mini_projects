@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views.generic import DetailView
+
 from .models import Bookmark
 from django.views.generic.list import ListView
 
@@ -28,3 +30,6 @@ class BookmarkCreateView(CreateView):
 # success_url 은 글쓰기를 완료하고 이동할 페이지
 # template_name_suffix 는 사용할 텐플릿의 접미사만 변경하는 설정값
 
+
+class BookmarkDetailView(DetailView):
+    model = Bookmark
