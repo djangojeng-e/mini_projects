@@ -1,3 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Bookmark List {% endblock %}
+
+
+{% block content %}
+
 <div class="btn-group">
     <a href="{% url 'add' %}" class="btn btn-info">Add Bookmark</a>
 </div>
@@ -36,4 +44,4 @@
 </table>
 
 
-</table>
+{% endblock %}
