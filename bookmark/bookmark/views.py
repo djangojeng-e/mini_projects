@@ -18,6 +18,7 @@ from django.urls import reverse_lazy
 
 class BookmarkListView(ListView):
     model = Bookmark
+    paginate_by = 6
 
 
 class BookmarkCreateView(CreateView):
