@@ -1,0 +1,19 @@
+
+
+<ul>
+{% for todo in to_do_list %}
+
+<li>할일 제목 : {{ todo.name }}</li>
+
+
+<li>생성 날짜 : {{ todo.date_created }}</li>
+
+<li>데드라인 날짜 : {{ todo.date_deadline }}</li>
+
+<li>남은 일수 : {{ todo.remaining_days }}</li>
+
+{% endfor %}
+</ul>
+
+
+
