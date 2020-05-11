@@ -1,5 +1,9 @@
+{% extends 'bulma/base.html' %}
 
+{% block title %}내가 할일 뭐지?{% endblock %}
 
+{% block content %}
+  
 <ul>
 {% for todo in to_do_list %}
 
@@ -15,5 +19,4 @@
 {% endfor %}
 </ul>
 
-
-
+{% endblock content %}
