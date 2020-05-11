@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+import datetime
 
 # Create your models here.
 
@@ -10,9 +11,10 @@ class TodoList(models.Model):
     date_created = models.DateField(auto_now_add=True, verbose_name="생성날짜")
     date_deadline = models.DateField(verbose_name="데드라인")
     
-    def date_delayed(self):
-        delta = date(self.date_deadline) - date(self.date_created)
-        return delta.days 
+    def remaining_days(self):
+        delta = self.date_deadline - date.today()
+        days = delta.days 
+        return days
 
     def __str__(self):
         return f'{self.name} | {self.description} | {self.date_created} | {self.date_deadline}'

@@ -3,19 +3,19 @@ from .models import TodoList, TodoList_files, TodoList_images
 # Register your models here.
 
 
+class TodoList_filesInline(admin.TabularInline):
+    model = TodoList_files
+
+
+class TodoList_imagesInline(admin.TabularInline):
+    model = TodoList_images
+
+
 class TodoListAdmin(admin.ModelAdmin):
-    pass 
+    inlines = [TodoList_filesInline, TodoList_imagesInline]
 
-
-class TodoList_imagesAdmin(admin.ModelAdmin):
-    pass
-
-
-class TodoList_filesAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'description', 'date_created', 'date_deadline', 'remaining_days')
+    list_filter = ['date_created']
 
 
 admin.site.register(TodoList, TodoListAdmin)
-admin.site.register(TodoList_images, TodoList_imagesAdmin)
-admin.site.register(TodoList_files, TodoList_filesAdmin)
-
