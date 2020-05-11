@@ -15,15 +15,15 @@ class TodoList(models.Model):
         return delta.days 
 
     def __str__(self):
-        return f'{self.name} | {self.description} | {self.date_created} | {self.date_deadline} | {self.date_delayed}'
+        return f'{self.name} | {self.description} | {self.date_created} | {self.date_deadline}'
 
 
 class TodoList_images(models.Model):
     todo = models.ForeignKey(TodoList, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='todo/images/%Y/%m')
+    image = models.ImageField(upload_to='todo/images/%Y/%m', blank=True)
 
 
 class TodoList_files(models.Model):
     todo = models.ForeignKey(TodoList, on_delete=models.CASCADE)
-    files = models.FileField(upload_to='todo/files/%Y/%m')
+    files = models.FileField(upload_to='todo/files/%Y/%m', blank=True)
 
