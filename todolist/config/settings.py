@@ -61,7 +61,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')], # Templates folder 설정 
-        'APP_DIRS': False,
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -125,3 +125,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
+# MEDIA_ROOT 설정 
+# user-uploaded static files 의 기본 경로 
+MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
+MEDIA_URL = '/media/'

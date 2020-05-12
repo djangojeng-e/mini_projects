@@ -21,7 +21,7 @@
     </header>
     <div class="card-content">
       <div class="content">
-        해야 할일 : {{ todo.description|truncatechars:30 }}
+        {{ todo.description|truncatechars:10 }}
         <br>
         <hr>
         생성 날짜 : {{ todo.date_created }}

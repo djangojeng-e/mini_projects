@@ -32,13 +32,15 @@
             남은 일수 : {{ todolist.remaining_days }}
             <hr>
             관련 이미지 : 
-            {% for image in todolist_images_set.all %}
-            <img src="{{ image.url }}">
+            {% for image in todolist.todolist_images_set.all %}
+            <img src="{{ image.image.url }}" width="300px" height="350px" alt="reference_image">
             {% endfor %}
             <hr>
-            관련 파일 : 
-            {% for file in todolist_files_set.all %}
-            <a href="#">{{ file }}</a>
+            관련 파일 : <br><br>
+            {% for file in todolist.todolist_files_set.all %}
+            {{ file.files.url }}
+            <a href="{{ file.files.url }}">(파일보기)</a><br>
+
             {% endfor %}
           </div>
         </div>
