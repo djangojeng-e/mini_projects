@@ -7,7 +7,7 @@ from django.views import generic
 
 class IndexView(generic.ListView):
     context_object_name = 'to_do_list'
-    template_name = 'todo/todo-lists.html' 
+    
 
     def get_queryset(self):
         return TodoList.objects.all()
