@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from .models import TodoList, TodoList_files, TodoList_images
+from django.shortcuts import render, redirect
 from django.views import generic
+from django.urls import reverse_lazy
+
+from .models import TodoList, TodoList_files, TodoList_images
 
 # Create your views here.
 
@@ -19,3 +21,9 @@ class DetailView(generic.DetailView):
     
     def get_queryset(self):
         return TodoList.objects.all()
+
+
+class DeleteView(generic.DeleteView):
+    model = TodoList
+    success_url = ''
+    template_name = 'todo/delete.html'
