@@ -3,7 +3,11 @@
 {% block title %}할일 목록{% endblock %}
 
 {% block content %}
-  
+<div class="box has-text-centered">
+  <a href="{% url 'todo:todolist_create' %}">
+<button class="button is-info is-rounded is-fullwidth">할일 추가하기</button>
+</a>
+</div>
 
 <div class="columns">
 {% for todo in to_do_list %}
