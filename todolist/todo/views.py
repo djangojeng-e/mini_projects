@@ -27,3 +27,12 @@ class DeleteView(generic.DeleteView):
     model = TodoList
     success_url = ''
     template_name = 'todo/delete.html'
+
+
+
+
+class UpdateView(generic.UpdateView):
+    model = TodoList
+    fields = ['name', 'description', 'date_deadline']
+    template_name = 'todo/update.html'
+    success_url = "/"
