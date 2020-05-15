@@ -25,7 +25,7 @@ class TodoCreateForm(forms.Form):
     )
 
     date_deadline = forms.DateField(
-        widget=forms.DateInput(
+        widget=forms.DateInput(format='%Y-%m-%d',
             attrs={
                 'id': 'datepicker',
                 'placeholder': 'YYYY-MM-DD',

@@ -19,7 +19,7 @@
 
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="#">
+      <a class="navbar-item" href="{% url 'todo:todolist' %}">
         <img src="{% static 'images/todo_list.jpg' %}" width="112" height="28">
       </a>
   
@@ -39,7 +39,7 @@
           Home
         </a>
   
-        <a class="navbar-item">
+        <a class="navbar-item" href="{% url 'todo:todolist' %}">
           To Do Lists
         </a>
   
