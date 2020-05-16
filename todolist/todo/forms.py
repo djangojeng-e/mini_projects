@@ -1,5 +1,5 @@
 from django import forms
-
+import datetime
 
 
 class TodoCreateForm(forms.Form):
@@ -24,7 +24,9 @@ class TodoCreateForm(forms.Form):
         )
     )
 
-    date_deadline = forms.DateField(
+    date_deadline = forms.DateField(initial=datetime.date.today,
+    # initial = datetime.date.today 로 정해서, 적어도 오늘 날짜로 폼이 미리 채워져서 
+    # 에러를 방지할수 있음.. 
         widget=forms.DateInput(format='%Y-%m-%d',
             attrs={
                 'id': 'datepicker',
