@@ -7,6 +7,12 @@ from .forms import TodoCreateForm
 # Create your views here.
 
 
+def delete_todo(request, pk):
+    t = TodoList.objects.get(pk=pk)
+    t.delete() 
+    return redirect('/')
+
+
 class IndexView(generic.ListView):
     context_object_name = 'to_do_list'
     

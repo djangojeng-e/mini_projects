@@ -31,12 +31,12 @@
         
   
       <div class="navbar-end">
-        <a class="navbar-item">
+        <a class="navbar-item" href="{% url 'todo:todolist' %}">
           Home
         </a>
   
         <a class="navbar-item" href="{% url 'todo:todolist' %}">
-          To Do Lists
+          My Todos
         </a>
   
         <div class="navbar-item has-dropdown is-hoverable">
@@ -45,9 +45,7 @@
           </a>
   
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
-            </a>
+            
             <a class="navbar-item">
               Jobs
             </a>
@@ -88,9 +86,6 @@
   {% endblock %}
   
 
-
-
-  <img src="{% static 'images/main.jpg' %}" width="100%">
 
 
    

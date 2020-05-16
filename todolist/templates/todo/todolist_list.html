@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}할일 목록{% endblock %}
 
 {% block content %}
@@ -45,4 +45,8 @@
 {% endfor %}
 
 </div>
+
+<img src="{% static 'images/main.jpg' %}" width="100%">
+
+
 {% endblock content %}
