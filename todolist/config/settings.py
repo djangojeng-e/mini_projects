@@ -37,6 +37,10 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
+# Allauth 관련 세팅 
+LOGIN_REDIRECT_URL = '/'  
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'   
 
 
 # Application definition
