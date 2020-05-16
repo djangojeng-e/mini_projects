@@ -28,6 +28,17 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+AUTHENTICATION_BACKENDS = (
+
+    # allauth 와 상관없이 username 으로 장고 어드민에 로그인이 필요할때 
+    'django.contrib.auth.backends.ModelBackend',
+
+    # 'allauth' 특화 인증 방법, e-mail로 로그인 하는것 같은것 
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,7 +54,20 @@ INSTALLED_APPS = [
 
     # Bulma CSS Framework 
     'bulma',
+
+    # Allauth를 위한 Apps 
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount', 
+
+    # ... 소셜로그인을 할 제공자 리스트를 아래에 포함 
+    # 'allauth.socialaccount.providers.naver'
 ]
+
+SITE_ID = 1 
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
