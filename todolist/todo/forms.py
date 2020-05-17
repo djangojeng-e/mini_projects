@@ -2,6 +2,44 @@ from django import forms
 import datetime
 
 
+class TodoContactForm(forms.Form):
+    name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'class': 'input',
+                'placeholder': '이름',
+            }
+        )
+    )
+
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={
+                'class': 'input',
+                'placeholder': '이메일',
+            }
+        )
+    )
+
+    phone_number = forms.CharField(
+        widget = forms.TextInput(
+            attrs={
+                'class': 'input',
+                'placeholder': '전화번호',
+            }
+
+        )
+    )
+
+    message = forms.CharField(
+        widget = forms.Textarea(
+            attrs={
+                'class': 'textarea',
+                'placeholder': '메시지를 입력해주세요',
+            }
+        )
+    )
+
 class TodoCreateForm(forms.Form):
 
     name = forms.CharField(

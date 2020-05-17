@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import TodoList, TodoList_files, TodoList_images
+from .models import ContactUs
 # Register your models here.
 
 
@@ -18,4 +19,10 @@ class TodoListAdmin(admin.ModelAdmin):
     list_filter = ['date_created']
 
 
+class ContactUsAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone_number', 'message', 'is_processed' ,'is_it_processed')
+    list_filter = ['email']
+    search_fields = ['email']
+
 admin.site.register(TodoList, TodoListAdmin)
+admin.site.register(ContactUs, ContactUsAdmin)

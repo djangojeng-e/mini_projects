@@ -3,8 +3,32 @@ from django.views import generic
 from django.urls import reverse_lazy
 from datetime import date, datetime
 from .models import TodoList, TodoList_files, TodoList_images
-from .forms import TodoCreateForm
+from .models import ContactUs
+from .forms import TodoCreateForm, TodoContactForm
 # Create your views here.
+
+
+def contact_form(request):
+    if request.method == "POST":
+        form = TodoContactForm(request.POST)
+        if form.is_valid():
+            name = request.POST['name']
+            email = request.POST['email']
+            phone_number = request.POST['phone_number']
+            message = request.POST['message']
+
+            c = ContactUs(
+                name=name,
+                email=email,
+                phone_number=phone_number,
+                message=message,
+            )
+            c.save()
+            return HttpResponse("<script>window.onload = function(){alert('메시지가 접수되었습니다.'); document.location.href='/';}</script>")
+        return render(request, 'contact.html', {'form': form})
+    else:
+        form = TodoContactForm()
+        return render(request, 'contact.html', {'form': form})
 
 
 def delete_todo(request, pk):
