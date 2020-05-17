@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount', 
 
     # ... 소셜로그인을 할 제공자 리스트를 아래에 포함 
-    # 'allauth.socialaccount.providers.naver'
+    'allauth.socialaccount.providers.naver'
 ]
 
 SITE_ID = 1 
