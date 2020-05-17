@@ -67,7 +67,7 @@ class TodoCreateForm(forms.Form):
     # 에러를 방지할수 있음.. 
         widget=forms.DateInput(format='%Y-%m-%d',
             attrs={
-                'id': 'datepicker',
+                'id': 'from-datepicker',
                 'placeholder': 'YYYY-MM-DD',
             }
         )

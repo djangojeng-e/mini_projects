@@ -47,6 +47,9 @@ class ContactUs(models.Model):
         else:
             return "처리대기"
 
+    def __str__(self):
+        return f'{self.name} | {self.email} | {self.phone_number}'
+
     class Meta:
         verbose_name = "Contact Us"
         verbose_name_plural = "Contact Us"
