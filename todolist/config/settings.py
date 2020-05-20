@@ -27,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'lp^e1i93m9mgn=sbo6#ix(w(od-5b41)2$z=ktmnm*!=+0q)&g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -57,11 +57,11 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_ACCESS_KEY_ID = SECRETS['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = SECRETS['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = 'todolist-djangojenge'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_AUTO_CREATE_BUCKET = True
 AWS_S3_REGION_NAME = 'ap-northeast-2'
-AWS_DEFAULT_ACL = None
-
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_S3_REGION_NAME)
+AWS_AUTO_CREATE_BUCKET = True
+AWS_DEFAULT_ACL = 'public-read'
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 
 
 # Static files (CSS, JavaScript, Images)
@@ -72,6 +72,14 @@ AWS_LOCATION = 'static'
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
+
+# MEDIA_ROOT 설정 
+# user-uploaded static files 의 기본 경로 
+MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
+MEDIA_URL = '/media/'
+
 
 
 # Application definition
@@ -176,8 +184,3 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# MEDIA_ROOT 설정 
-# user-uploaded static files 의 기본 경로 
-MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
-MEDIA_URL = '/media/'
