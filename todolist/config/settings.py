@@ -32,7 +32,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '52.79.175.188',]
+    '52.79.175.188',
+    '*']
 
 
 AUTHENTICATION_BACKENDS = (
